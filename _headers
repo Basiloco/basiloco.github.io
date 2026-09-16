@@ -1,0 +1,20 @@
+# Cloudflare Pages headers. Copied verbatim into dist/ at build time.
+# Scoped on purpose: /* carries no caching rule, so the Functions in functions/api
+# keep their own `cache-control: no-store` and the control panel stays live.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+
+# Astro fingerprints these, so they can never go stale.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# The Kindfire loop (3.3 MB) and the photographs: re-curation rewrites the names.
+/video/*
+  Cache-Control: public, max-age=604800
+/img/*
+  Cache-Control: public, max-age=86400
+/docs/*
+  Cache-Control: public, max-age=86400
