@@ -1,3 +1,4 @@
-# Staging mirror on github.io. The real site is https://www.greenybastarts.net
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://www.greenybastarts.net/sitemap-index.xml
